@@ -1,5 +1,5 @@
-import React from 'react'
-import {Routes as RouteWrap, Route} from 'react-router-dom';
+import React from 'react';
+import {Routes as RoutesWrap, Route} from 'react-router-dom';
 import Main from '../../Pages/Main';
 import Ceo from '../../Pages/SPC_Group/Ceo';
 import Spc_way from '../../Pages/SPC_Group/Spc_way';
@@ -14,9 +14,8 @@ import CF from '../../Pages/Media_Hub/CF';
 
 
 function Contents() {
-
-  const pageList = [
-    {link:'/', page:<Main/>},
+    const pageList = [
+        {link:'/', page:<Main/>},
         {link:'home', page:<Main/>},
         {link:'SPC_Group/Ceo', page:<Ceo/>},
         {link:'SPC_Group/Spc_way', page:<Spc_way/>},
@@ -28,17 +27,19 @@ function Contents() {
         {link:'Media_Hub/SNS', page:<SNS/>},
         {link:'Media_Hub/Youtube', page:<Youtube/>},
         {link:'Media_Hub/CF', page:<CF/>},
-  ];
+        
+
+    ]
 
   return (
-    <main className="content_area">
-      <RouteWrap>
-        {
-          pageList.map((componet,index)=>{
-            <Route key={index} path={componet.link} element={componet.page} />
-          })
-        }
-      </RouteWrap>
+    <main className='content_area'>
+        <RoutesWrap>
+            {
+                pageList.map((component, index)=>
+                    <Route key={index} path={component.link} element={component.page}/>
+                )
+            }
+        </RoutesWrap>
     </main>
   )
 }
